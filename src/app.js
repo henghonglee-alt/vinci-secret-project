@@ -172,5 +172,19 @@ function openContent(entry) {
 [closeDialog, cancelButton].forEach((button) => button.addEventListener('click', () => unlockDialog.close()));
 closeContent.addEventListener('click', () => contentDialog.close());
 
+initSiteGate();
+setTodayPanel();
+renderCards();
+Link.textContent = entry.tag === 'song' ? 'Open bonus link' : 'Open extra';
+  } else {
+    contentLink.classList.add('hidden');
+  }
+
+  contentDialog.showModal();
+}
+
+[closeDialog, cancelButton].forEach((button) => button.addEventListener('click', () => unlockDialog.close()));
+closeContent.addEventListener('click', () => contentDialog.close());
+
 setTodayPanel();
 renderCards();
