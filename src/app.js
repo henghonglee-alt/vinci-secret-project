@@ -30,6 +30,36 @@ const contentLink = document.getElementById('content-link');
 const STORAGE_KEY = 'archive-of-us-unlocked';
 const unlockedIds = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
 
+function unlockSite() {
+  localStorage.setItem(SITE_GATE_KEY, 'open');
+  siteGate.classList.add('hidden');
+  appShell.classList.remove('hidden');
+  document.body.classList.remove('is-gated');
+}
+
+function initSiteGate() {
+  const alreadyOpen = localStorage.getItem(SITE_GATE_KEY) === 'open';
+  if (alreadyOpen) {
+    unlockSite();
+    return;
+  }
+
+  document.body.classList.add('is-gated');
+  siteGate.classList.remove('hidden');
+  appShell.classList.add('hidden');
+
+  siteGateForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const submitted = siteGateInput.value.trim();
+    if (submitted === SITE_PASSWORD) {
+      siteGateFeedback.textContent = '';
+      unlockSite();
+    } else {
+      siteGateFeedback.textContent = 'Wrong password.';
+    }
+  });
+}
+
 const urlDate = new URLSearchParams(window.location.search).get('previewDate');
 const computedToday = new Date().toISOString().slice(0, 10);
 const today = urlDate || computedToday;

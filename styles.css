@@ -25,6 +25,56 @@ body {
   overflow-x: hidden;
 }
 
+body.is-gated {
+  overflow: hidden;
+}
+
+.site-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(248, 241, 239, 0.88);
+  backdrop-filter: blur(18px);
+}
+
+.site-gate__card {
+  width: min(100%, 28rem);
+  padding: 2rem;
+  border-radius: 28px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.site-gate__card h1 {
+  font-family: 'Fraunces', serif;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.site-gate__hint {
+  margin: 0.8rem 0 1rem;
+  color: var(--muted);
+}
+
+.site-gate__form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.site-gate__form input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  padding: 0.95rem 1rem;
+  font: inherit;
+}
+
 .background-blur {
   position: fixed;
   border-radius: 999px;

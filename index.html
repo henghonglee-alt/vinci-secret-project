@@ -17,10 +17,23 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="site-gate" id="site-gate">
+      <div class="site-gate__card">
+        <p class="section-label">private entry</p>
+        <h1>The Archive of Us</h1>
+        <p class="site-gate__hint">enter the password</p>
+        <form id="site-gate-form" class="site-gate__form">
+          <input id="site-gate-input" type="password" autocomplete="off" placeholder="Password" />
+          <p class="feedback" id="site-gate-feedback"></p>
+          <button class="primary-button" type="submit">Enter</button>
+        </form>
+      </div>
+    </div>
+
     <div class="background-blur blur-1"></div>
     <div class="background-blur blur-2"></div>
 
-    <main class="app-shell">
+    <main class="app-shell hidden" id="app-shell">
       <header class="hero">
         <p class="hero__eyebrow">for the days between</p>
         <h1>The Archive of Us</h1>
