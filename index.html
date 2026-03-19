@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Archive of Us</title>
+    <meta
+      name="description"
+      content="A romantic, daily unlock photo archive with password-gated memories."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="background-blur blur-1"></div>
+    <div class="background-blur blur-2"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="hero__eyebrow">for the days between</p>
+        <h1>The Archive of Us</h1>
+        <p class="hero__subtitle">
+          Find today’s card, use the clue on the back, and unlock what I left for you.
+        </p>
+      </header>
+
+      <section class="today-panel" id="today-panel">
+        <div>
+          <p class="section-label">today’s card</p>
+          <h2 id="today-title">Loading today’s moment…</h2>
+          <p id="today-description">
+            The first thing you see each day is the card waiting for you.
+          </p>
+        </div>
+        <button class="primary-button" id="open-today-button">Open today’s card</button>
+      </section>
+
+      <section class="progress-panel">
+        <div>
+          <p class="section-label">progress</p>
+          <strong id="progress-text">0 unlocked</strong>
+        </div>
+        <div>
+          <p class="section-label">available now</p>
+          <strong id="available-text">0 cards</strong>
+        </div>
+      </section>
+
+      <section class="timeline-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">your path</p>
+            <h3>Previous days stay open. Future days wait.</h3>
+          </div>
+          <p class="panel-note">A soft Duolingo-ish progression, but romantic instead of judgemental.</p>
+        </div>
+
+        <div class="card-grid" id="card-grid"></div>
+      </section>
+    </main>
+
+    <dialog class="unlock-dialog" id="unlock-dialog">
+      <form method="dialog" class="unlock-card" id="unlock-form">
+        <button class="dialog-close" id="close-dialog" aria-label="Close">×</button>
+        <div class="unlock-card__image-shell">
+          <img id="dialog-image" alt="Selected day card" />
+        </div>
+        <div class="unlock-card__body">
+          <p class="section-label" id="dialog-day-label">Day</p>
+          <h3 id="dialog-title">Moment title</h3>
+          <p id="dialog-hint">The clue is on the back of your physical card.</p>
+          <label class="password-label" for="password-input">Password</label>
+          <input id="password-input" name="password" type="text" autocomplete="off" placeholder="Type your answer" />
+          <p class="feedback" id="password-feedback"></p>
+          <div class="dialog-actions">
+            <button type="button" class="secondary-button" id="cancel-button">Cancel</button>
+            <button type="submit" class="primary-button">Unlock</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="content-dialog" id="content-dialog">
+      <div class="content-card">
+        <button class="dialog-close" id="close-content" aria-label="Close">×</button>
+        <div class="content-card__media">
+          <img id="content-image" alt="Unlocked memory image" />
+        </div>
+        <div class="content-card__body">
+          <p class="section-label" id="content-day-label">Day</p>
+          <h3 id="content-title">Title</h3>
+          <p class="content-tag" id="content-tag">memory</p>
+          <div class="content-text" id="content-text"></div>
+          <a id="content-link" class="primary-button content-link hidden" target="_blank" rel="noreferrer">Open bonus</a>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
